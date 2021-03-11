@@ -30,7 +30,6 @@ import GoodsList from 'components/content/goods/GoodsList.vue'
 import BScroll from 'components/common/bscroll/BScroll.vue'
 import BackTop from 'components/common/backtop/BackTop.vue'
 import {debounce} from 'common/utils'
-
 export default {
   name:"Home",
   components:{
@@ -109,9 +108,8 @@ export default {
       this.$refs.scroll.scroll.scrollTo(0,0,500)
     },
     contentScroll(position){
-      //1.是否显示返回顶部的图表
+      //1.是否显示返回顶部的图标
       this.isShowBackTop = Math.abs(position.y) > 1000;
-
       //2.tabControl吸顶判断
       this.isFixed = (Math.abs(position.y) > (this.tabOffsetTop-35));
     },
@@ -141,24 +139,21 @@ export default {
     SwipterImgLoad(){
       //tabControl 吸顶效果
       this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
-      //console.log( this.tabOffsetTop);
     }
   },
   activated(){
     //console.log("激活页面");
-    //滚动到上次要保留的位置
-    // this.$refs.scroll.refresh();
+    
     // 不能设置为0
     this.$refs.scroll.scrollTo(0,this.pageY,50)
-    console.log(this.pageY);
+    //滚动到上次要保留的位置
+    this.$refs.scroll.refresh();
   },
   destroyed(){
     console.log("页面被销毁了");
   },
   deactivated(){
-    //console.log("失去焦点");
     this.pageY = this.$refs.scroll.scroll ? this.$refs.scroll.scroll.y : 0;
-    //console.log(this.$refs.scroll.scroll.y)
   }
 }
 </script>

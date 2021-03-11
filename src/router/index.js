@@ -8,7 +8,7 @@ const Home = () => import('views/home/Home')
 const Cart = () => import('views/cart/Cart')
 const Account = () => import('views/account/Account')
 const Category = () => import('views/category/Category')
-
+const Detail = () =>  import('views/detail/Detail')
 
 Vue.use(VueRouter)
 const routes = [
@@ -31,6 +31,10 @@ const routes = [
     {
         path:'/account',
         component:Account,
+    },
+    {
+        path:'/detail/:iid', //动态路由
+        component:Detail
     }
 ]
 

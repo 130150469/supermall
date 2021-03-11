@@ -1,6 +1,6 @@
 <template>
    <div id="hy-swiper">
-      <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
+      <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" ref="swiper">
         <slot></slot>
       </div>
       <slot name="indicator">
@@ -59,8 +59,8 @@ export default {
        */
       changeTotalWidth:function(){
         this.stopTimer();
-        this.totalWidth = document.querySelector('.swiper').offsetWidth;
-
+        this.totalWidth = this.$refs.swiper.offsetWidth;
+       
         // 立即执行一次
         this.scrollContent(-this.currentIndex * this.totalWidth);
 
@@ -122,11 +122,15 @@ export default {
        * 操作DOM, 在DOM前后添加Slide
        */
 		  handleDom: function () {
-        // 1.获取要操作的元素
-        let swiperEl = document.querySelector('.swiper');
-        let slidesEls = swiperEl.getElementsByClassName('slide');
+        // 1.获取要操作的元素 不要用原生dom去操作
+        let swiperEl = this.$refs.swiper;
+        //let slidesEls = swiperEl.getElementsByClassName('slide');
+        let slidesEls = this.$refs.swiper.childNodes;
+        //console.log(this.$refs.swiper.childNodes.length);
         // 2.保存个数
         this.slideCount = slidesEls.length;
+        
+
         // 3.如果大于1个, 那么在前后分别添加一个slide
         if (this.slideCount > 1) {
           let cloneFirst = slidesEls[0].cloneNode(true);

@@ -1,15 +1,22 @@
 <template>
   <div>
-      <h2>购物车</h2>
+    <nav-bar>
+      <div slot="center">购物车</div>
+    </nav-bar>
   </div>
 </template>
 
 <script>
+import NavBar from 'components/common/navBar/NavBar.vue'
 export default {
+    name:"Cart",
+    components:{
+        NavBar
 
+    }
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

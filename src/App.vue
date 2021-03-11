@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <!-- 保持当前组件不被销毁 -->
-    <keep-alive>
+    <!-- 保持当前组件不被销毁 不包括Detail子组件 -->
+    <keep-alive exclude="Detail">
       <router-view></router-view>
     </keep-alive>
     <main-tab-bar/>

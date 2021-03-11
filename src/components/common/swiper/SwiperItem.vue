@@ -1,12 +1,15 @@
 <template>
-  <div class="slide">
+  <div class="slide" >
     <slot></slot>
   </div>
 </template>
 
 <script>
 	export default {
-		name: "Slide"
+		name: "Slide",
+    mounted(){
+      
+    }
 	}
 </script>
 
