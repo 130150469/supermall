@@ -40,7 +40,6 @@ const routes = [
 
 const router = new VueRouter({
     routes,//这里一定是routes 各位爹 唉。。
-    mode:'history',
 });
 
 

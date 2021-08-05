@@ -1,4 +1,6 @@
 module.exports = {
+    publicPath: './',
+    outputDir:'../learn-cordova/www',
     configureWebpack:{
         resolve:{
             alias:{

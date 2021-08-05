@@ -14,7 +14,7 @@ export function request(config){
         //1.比如config的一些请求不符合服务器端的要求
 
         //2.比如每次发送网络请求的时候 希望显示一个请求的图标
-
+        
         //3.某些网络请求必须携带一些必要的信息 比如登录token
         return data
     },err =>{
